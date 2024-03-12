@@ -36,7 +36,7 @@ const Header = ({ theme, handleThemeSwitch }: HeaderProps) => {
           {theme === "light" ? <img src={dark} /> : <img src={light} />}
         </button>
         <div className="flex items-center justify-center px-4 border-l border-l-gray-600">
-          <img src={pfp} />
+          <img src={pfp} className="max-w-[25px]" />
         </div>
       </div>
     </header>
