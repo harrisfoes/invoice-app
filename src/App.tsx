@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Update from "./pages/Update";
 import useTheme from "./hooks/useTheme";
+import Header from "./components/Header";
 
 function App() {
   const [theme, handleThemeSwitch] = useTheme();
@@ -10,8 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <header className="bg-amber-200">This is the header</header>
-        <button onClick={handleThemeSwitch}>Switch Theme: {theme}</button>
+        <Header theme={theme} handleThemeSwitch={handleThemeSwitch} />
         <Routes>
           <Route path="/invoice-app" element={<Home />} />
           <Route path="/invoice-app/:id" element={<Update />} />
