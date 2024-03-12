@@ -20,6 +20,8 @@ export default {
         "rose-10": "hsl(0,100%,80%)",
         "white-11": "hsl(240,27%,98%)",
         "black-12": "hsl(233,30%,11%)",
+        "green-paid": "rgb(51,214,159)",
+        "orange-pending": "#FF8F00",
       },
     },
   },
