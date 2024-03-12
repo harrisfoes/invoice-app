@@ -1,5 +1,6 @@
 import InvoiceHeading from "../components/InvoiceHeading";
 import InvoiceCard from "../components/InvoiceCard";
+import InvoiceEmpty from "../components/InvoiceEmpty";
 import { useState } from "react";
 
 type Invoice = {
@@ -11,7 +12,7 @@ type Invoice = {
 };
 
 const Home = () => {
-  const [invoices, setInvoices] = useState<Invoice[]>([
+  const [invoices, setInvoices] = useState<Invoice[] | null>([
     {
       id: "RT3080",
       clientName: "Jensen Huang",
@@ -40,7 +41,8 @@ const Home = () => {
       <section className="container md:max-w-[730px] w-11/12 mx-auto py-6 ">
         <InvoiceHeading />
         <section className="py-4">
-          {invoices.length > 1 &&
+          {!invoices && <InvoiceEmpty />}
+          {invoices &&
             invoices.map((invoice) => {
               return (
                 <InvoiceCard

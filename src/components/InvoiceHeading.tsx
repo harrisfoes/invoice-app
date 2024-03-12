@@ -5,7 +5,7 @@ const InvoiceHeading = () => {
   return (
     <section className="flex justify-between">
       <div>
-        <h1 className="font-bold text-3xl">Invoices</h1>
+        <h1 className="font-bold text-2xl">Invoices</h1>
         <p>7 invoices</p>
       </div>
       <div className="flex gap-4 items-center">
