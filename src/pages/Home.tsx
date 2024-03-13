@@ -12,6 +12,7 @@ type Invoice = {
 };
 
 const Home = () => {
+  const [addNewOpen, setAddNewOpen] = useState(false);
   const [invoices, setInvoices] = useState<Invoice[] | null>([
     {
       id: "RT3080",
@@ -36,10 +37,15 @@ const Home = () => {
     },
   ]);
 
+  const handleAddNew = (isOpenStatus: boolean) => {
+    setAddNewOpen(isOpenStatus);
+  };
+
   return (
     <main className="dark:bg-black-12 text-black-8 min-h-screen font-spartan dark:text-white bg-white-11 transition-all duration-200 ease-in">
       <section className="container md:max-w-[730px] w-11/12 mx-auto py-6 ">
-        <InvoiceHeading />
+        <InvoiceHeading handleAddNew={handleAddNew} />
+        <p>Status: {addNewOpen.toString()}</p>
         <section className="py-4">
           {!invoices && <InvoiceEmpty />}
           {invoices &&
