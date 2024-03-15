@@ -13,15 +13,9 @@ const InvoiceStatus = ({
     bg = "rgb(244,143,0, 0.10)";
     fill = "rgb(244,143,0)";
   } else if (status === "draft") {
-    //bg = "rgb(55,59,83, 0.10)";
-    //fill = "rgb(55,59,83)";
-    //bg = "rgb(223,227,250, 0.10)";
-    //fill = "rgb(223,227,250)";
     bg = "rgb(255,151,151, 0.10)";
     fill = "rgb(255,151,151)";
   }
-
-  console.log(bg);
 
   return (
     <>

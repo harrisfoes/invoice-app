@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Update from "./pages/Update";
 import useTheme from "./hooks/useTheme";
 import Header from "./components/Header";
+import { AddNewProvider } from "./context/AddNewContext";
 
 function App() {
   const [theme, handleThemeSwitch] = useTheme();
@@ -12,10 +13,12 @@ function App() {
     <>
       <BrowserRouter>
         <Header theme={theme} handleThemeSwitch={handleThemeSwitch} />
-        <Routes>
-          <Route path="/invoice-app" element={<Home />} />
-          <Route path="/invoice-app/:id" element={<Update />} />
-        </Routes>
+        <AddNewProvider>
+          <Routes>
+            <Route path="/invoice-app" element={<Home />} />
+            <Route path="/invoice-app/:id" element={<Update />} />
+          </Routes>
+        </AddNewProvider>
       </BrowserRouter>
     </>
   );

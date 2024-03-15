@@ -1,11 +1,7 @@
 import Button from "./Button";
 import chevron from "../assets/chevron.svg";
 
-const InvoiceHeading = ({
-  handleAddNew,
-}: {
-  handleAddNew: (isOpen: boolean) => void;
-}) => {
+const InvoiceHeading = () => {
   return (
     <section className="flex justify-between">
       <div>
@@ -20,7 +16,7 @@ const InvoiceHeading = ({
           </button>
         </div>
         <div>
-          <Button text="New" isAddNew={true} handleAddNew={handleAddNew} />
+          <Button text="New" isAddNew={true} />
         </div>
       </div>
     </section>
