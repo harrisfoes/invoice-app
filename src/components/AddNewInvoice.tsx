@@ -28,8 +28,8 @@ const AddNewInvoice = () => {
 
   return (
     <>
-      <section className="absolute inset-0 min-h-screen dark:bg-black-12 bg-white z-10">
-        <div>
+      <section className="absolute inset-0 max-w-[616px] min-h-screen dark:bg-black-12 bg-white z-10">
+        <div className="w-11/12 mx-auto">
           <button
             className="py-4 flex items-center gap-2 justify-center font-semibold"
             onClick={toggleIsOpen}
@@ -117,6 +117,10 @@ const AddNewInvoice = () => {
           </form>
         </div>
       </section>
+      <section
+        className="absolute w-full bg-black-12 opacity-75 h-screen"
+        onClick={toggleIsOpen}
+      ></section>
     </>
   );
 };

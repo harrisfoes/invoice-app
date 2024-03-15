@@ -40,11 +40,11 @@ const Home = () => {
   ]);
 
   return (
-    <main className="dark:bg-black-12 text-black-8 min-h-screen font-spartan dark:text-white bg-white-11 transition-all duration-200 ease-in">
-      <section className="relative container md:max-w-[730px] w-11/12 mx-auto py-6 ">
+    <main className="relative dark:bg-black-12 text-black-8 min-h-screen font-spartan dark:text-white bg-white-11 transition-all duration-200 ease-in">
+      {/* add new section */}
+      {isOpen && <AddNewInvoice />}
+      <section className=" container md:max-w-[730px] w-11/12 mx-auto py-6 ">
         <InvoiceHeading />
-        {/* add new section */}
-        {isOpen && <AddNewInvoice />}
         <section className="py-4">
           {/* invoice display section */}
           {!invoices && <InvoiceEmpty />}
