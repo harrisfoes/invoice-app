@@ -1,6 +1,7 @@
 import { useAddNew } from "../context/AddNewContext";
 import chevron from "../assets/chevron.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
+import remove from "../assets/trash.svg";
 
 enum PaymentEnum {
   next_1_days = "Next 1 Days",
@@ -317,9 +318,85 @@ const AddNewInvoice = () => {
 
             <p className="text-gray-6 font-bold mt-6 mb-2">Item List</p>
 
-            <button type="submit" className="bg-amber-400 p-2 rounded-xl">
-              Save
-            </button>
+            {/* Add New Item Button
+              create component first
+              when item button is created make hook with Item object
+              
+            */}
+
+            <div className="flex flex-col mb-2">
+              <label htmlFor="item-name" className="text-sm text-blue-7">
+                Item Name
+              </label>
+              <input
+                id="item-name"
+                className="rounded-sm px-2 py-2 border dark:bg-blue-4 dark:border-0"
+              />
+            </div>
+
+            <div className="flex gap-4">
+              <div className="flex flex-col mb-2 w-1/6">
+                <label htmlFor="item-qty" className="text-blue-7">
+                  Qty.
+                </label>
+                <input
+                  id="item-qty"
+                  className="rounded-sm px-2 py-2 border dark:bg-blue-4 dark:border-0"
+                  type="number"
+                />
+              </div>
+              <div className="flex flex-col mb-2 w-2/5">
+                <label htmlFor="item-qty" className="text-blue-7">
+                  Price
+                </label>
+                <input
+                  id="item-qty"
+                  className="rounded-sm px-2 py-2 border dark:bg-blue-4 dark:border-0"
+                  type="number"
+                />
+              </div>
+              <div className="flex flex-col mb-2 w-2/5">
+                <label htmlFor="item-qty" className="text-blue-7">
+                  Total
+                </label>
+                <p className="flex items-center justify-start font-semibold h-full">
+                  156.00
+                </p>
+              </div>
+              <div className="w-1/6 flex items-center">
+                <img src={remove} />
+              </div>
+            </div>
+
+            <div className="w-10/12 mx-auto">
+              <button className="mx-auto w-full rounded-full py-4 font-semibold bg-gray-6 text-white-5 px-2">
+                + Add New Item
+              </button>
+            </div>
+
+            <div>
+              <button
+                className="bg-slate-400 p-2 rounded-xl"
+                onClick={(e) => {
+                  e.preventDefault;
+                }}
+              >
+                Discard
+              </button>
+
+              <button
+                className="bg-sky-400 p-2 rounded-xl"
+                onClick={(e) => {
+                  e.preventDefault;
+                }}
+              >
+                Save as Draft
+              </button>
+
+              <button type="submit" className="bg-amber-400 p-2 rounded-xl">
+                Save
+              </button>
+            </div>
           </form>
         </div>
       </section>
