@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useAddNew } from "../context/AddNewContext";
 import chevron from "../assets/chevron.svg";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -36,10 +37,12 @@ type InvoiceForm = {
 
 const AddNewInvoice = () => {
   const { toggleIsOpen } = useAddNew();
+  const { additionalItems, setAdditionalItems } = useState<Item[]>();
 
   const {
     register,
     handleSubmit,
+    clearErrors,
     formState: { errors },
   } = useForm<InvoiceForm>();
   const onSubmit: SubmitHandler<InvoiceForm> = (data) => console.log(data);
@@ -321,6 +324,8 @@ const AddNewInvoice = () => {
             {/* Add New Item Button
               create component first
               when item button is created make hook with Item object
+
+              when add new pressed show render list items
               
             */}
 
@@ -369,7 +374,13 @@ const AddNewInvoice = () => {
             </div>
 
             <div className="w-10/12 mx-auto">
-              <button className="mx-auto w-full rounded-full py-4 font-semibold bg-gray-6 text-white-5 px-2">
+              <button
+                className="mx-auto w-full rounded-full py-4 font-semibold bg-gray-6 text-white-5 px-2"
+                onClick={(e) => {
+                  e.preventDefault();
+                  clearErrors();
+                }}
+              >
                 + Add New Item
               </button>
             </div>
@@ -378,7 +389,8 @@ const AddNewInvoice = () => {
               <button
                 className="bg-slate-400 p-2 rounded-xl"
                 onClick={(e) => {
-                  e.preventDefault;
+                  e.preventDefault();
+                  clearErrors();
                 }}
               >
                 Discard
@@ -387,7 +399,8 @@ const AddNewInvoice = () => {
               <button
                 className="bg-sky-400 p-2 rounded-xl"
                 onClick={(e) => {
-                  e.preventDefault;
+                  e.preventDefault();
+                  clearErrors();
                 }}
               >
                 Save as Draft
