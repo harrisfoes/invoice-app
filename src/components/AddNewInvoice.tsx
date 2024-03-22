@@ -37,15 +37,18 @@ type InvoiceForm = {
 
 const AddNewInvoice = () => {
   const { toggleIsOpen } = useAddNew();
-  const { additionalItems, setAdditionalItems } = useState<Item[]>();
+  const { addItems, setAddItems } = useState<Item[]>();
 
   const {
     register,
     handleSubmit,
+    reset,
     clearErrors,
     formState: { errors },
   } = useForm<InvoiceForm>();
+
   const onSubmit: SubmitHandler<InvoiceForm> = (data) => console.log(data);
+
   console.log(errors);
 
   const dateToday = () => {
@@ -391,6 +394,8 @@ const AddNewInvoice = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   clearErrors();
+                  reset();
+                  toggleIsOpen();
                 }}
               >
                 Discard
