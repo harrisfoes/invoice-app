@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Update from "./pages/Update";
 import useTheme from "./hooks/useTheme";
 import Header from "./components/Header";
+import Demo from "./pages/Demo";
 import { AddNewProvider } from "./context/AddNewContext";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/invoice-app" element={<Home />} />
             <Route path="/invoice-app/:id" element={<Update />} />
+            <Route path="/invoice-app/demo" element={<Demo />} />
           </Routes>
         </AddNewProvider>
       </BrowserRouter>
